@@ -1,4 +1,4 @@
-package ga.laboratorio2.slideviewer;
+package ga.laboratorio2.slideeditor;
 
 /**
  *
@@ -6,7 +6,7 @@ package ga.laboratorio2.slideviewer;
  * @author Orlando Rodrigues
  */
 
-public class Presentation {
+public class Presentation{
     private DoublyLinkedList<Style> estilo;
     private DoublyLinkedList<Slide> pagina;
     private Footer rodape;

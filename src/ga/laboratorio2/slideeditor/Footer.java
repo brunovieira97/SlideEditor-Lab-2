@@ -1,4 +1,4 @@
-package ga.laboratorio2.slideviewer;
+package ga.laboratorio2.slideeditor;
 
 /**
  *
@@ -6,7 +6,7 @@ package ga.laboratorio2.slideviewer;
  * @author Orlando Rodrigues
  */
 public class Footer extends Element {
-    private String left,right,center;
+    private String left,right,center, fd;
 
     public Footer() {
     }
@@ -18,6 +18,14 @@ public class Footer extends Element {
         this.center = center;
     }
 
+    public String getFd() {
+        return fd;
+    }
+
+    public void setFd(String fd) {
+        this.fd = fd;
+    }
+    
     public String getLeft() {
         return left;
     }

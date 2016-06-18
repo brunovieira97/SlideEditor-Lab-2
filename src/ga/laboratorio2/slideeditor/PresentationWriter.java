@@ -1,4 +1,4 @@
-package ga.laboratorio2.slideviewer;
+package ga.laboratorio2.slideeditor;
 
 /**
  *
@@ -49,7 +49,7 @@ public class PresentationWriter {
         out.print("left=");
         out.println(ps.getRodape().getLeft());
         out.print("center=#date;");
-        out.println(ps.getRodape().getCenter());
+        out.println(ps.getRodape().getFd());
         out.println("right=#page");
         out.println("/footer");
     }

@@ -1,4 +1,4 @@
-package ga.laboratorio2.slideviewer;
+package ga.laboratorio2.slideeditor;
 
 /**
  *
@@ -33,7 +33,7 @@ public class ColorCodes {
     }
 
     public static String corFundo(String cor) {
-        String corFundo = comando;
+        String corFundo = "";
         if (cor.equals("BLACK")) {
             corFundo = "40m";
         } else if (cor.equals("RED")) {

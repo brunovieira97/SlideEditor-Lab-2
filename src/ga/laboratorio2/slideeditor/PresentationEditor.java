@@ -1,8 +1,9 @@
-package ga.laboratorio2.slideviewer;
+package ga.laboratorio2.slideeditor;
 
 /**
  *
- * @author Brolee
+ * @author Bruno Vieira
+ * @author Orlando Rodrigues
  */
 
 public class PresentationEditor {

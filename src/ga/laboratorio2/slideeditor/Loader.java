@@ -31,10 +31,10 @@ public class Loader {
                     String[] s = valor.split(";");
                     Style st = new Style();
                     st.setId(Integer.valueOf(s[0]));
-                    st.setTextColor(ColorCodes.corFonte(s[1]));
-                    st.setBackgroundColor(ColorCodes.corFundo(s[2]));
-                    st.setTitleTextColor(ColorCodes.corFonte(s[3]));
-                    st.setTitleBackColor(ColorCodes.corFundo(s[4]));
+                    st.setTextColor(s[1]);
+                    st.setBackgroundColor(s[2]);
+                    st.setTitleTextColor(s[3]);
+                    st.setTitleBackColor(s[4]);
                     ps.addStyle(st);
                 }
             }
@@ -74,6 +74,8 @@ public class Loader {
                 if (line.startsWith("center=")) {  
                     String valor = line.substring(7);
                     ft.setCenter(ehOQ(valor));
+                    String r = line.substring(13);
+                    ft.setFd(r);
                 }
                 if (line.startsWith("right=")) {  
                     String valor = line.substring(6);
@@ -233,7 +235,7 @@ public class Loader {
 
             tamanho = contaSlide(bf);
             bf.reset();
-            ps = new Presentation(tamanho);
+            ps = new Presentation();
             
             while((line = bf.readLine()) != null){
                 if("".equals(line)){
@@ -263,8 +265,6 @@ public class Loader {
             JOptionPane.showMessageDialog(null, "Arquivo \"" + filename+"\" não existe!", "Erro!", JOptionPane.ERROR_MESSAGE);
         }catch(IOException io){
             JOptionPane.showMessageDialog(null, "Erro na leitura do arquivo " + filename, "Erro!", JOptionPane.ERROR_MESSAGE);
-        }catch(ParseException pe){
-            System.out.println("Erro!");
         }catch(NullPointerException e){
             System.out.println("Erro na abertura do arquivo.");
         }finally{
