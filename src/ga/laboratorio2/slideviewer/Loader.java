@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
  */
 
 public class Loader {
+    public static int numPagina = 0;
     public static void readStyle(BufferedReader bf, Presentation ps) throws IOException{
         String line;
             while((line = bf.readLine()) != null){
@@ -30,10 +31,10 @@ public class Loader {
                     String[] s = valor.split(";");
                     Style st = new Style();
                     st.setId(Integer.valueOf(s[0]));
-                    st.setTextColor(s[1]);
-                    st.setBackgroundColor(s[2]);
-                    st.setTitleTextColor(s[3]);
-                    st.setTitleBackColor(s[4]);
+                    st.setTextColor(ColorCodes.corFonte(s[1]));
+                    st.setBackgroundColor(ColorCodes.corFundo(s[2]));
+                    st.setTitleTextColor(ColorCodes.corFonte(s[3]));
+                    st.setTitleBackColor(ColorCodes.corFundo(s[4]));
                     ps.addStyle(st);
                 }
             }
@@ -95,14 +96,14 @@ public class Loader {
             return elementos;
     }
      
-    public static ListItem[] readContent(BufferedReader bf) throws IOException{
+    public static Element[] readContent(BufferedReader bf) throws IOException{
         String line;
 
         bf.mark(1);
         int tamanho = contaElementContent(bf);
         bf.reset();
-        ListItem[] list = new ListItem[tamanho];
-        int cont = 1;
+        Element[] elem = new Element[tamanho];
+        int cont = 0;
         int nr = 1;
         int nr2 = 1;
         while((line = bf.readLine()) != null){
@@ -112,72 +113,44 @@ public class Loader {
                 if(line.startsWith("/content")){
                     break;
                 }
-//                if(line.startsWith("**")){
-//                    StringBuilder sb = new StringBuilder();
-//                    String s = line.substring(1);
-//                    sb.append("      ");
-//                    sb.append(s);
-//                    String resultado = sb.toString();
-//                    Element e = new Element(resultado);
-//
-//                    elem[cont++] = e;
-                if(line.startsWith("*")){
-                    ListItem li = new ListItem(false, line);
-                    BufferedReader bf2 = bf;
-                    while((line = bf2.readLine()) != null){
-                        if("".equals(line)){
-                            continue;
-                        }else if(line.startsWith("**")){
-                            ListItem sub = new ListItem(false, line.substring(1));
-                            li.addChild(sub);
-                            continue;
-                        }else{
-                            break;
-                        }
-                    }
-//                }else if(line.startsWith("##")){
-//                    StringBuilder sb = new StringBuilder();
-//                    String s = line.substring(2);
-//                    sb.append("      ");
-//                    sb.append(nr-1).append("." + "").append(nr2).append(".");
-//                    sb.append(s);
-//                    nr2++;
-//                    String resultado = sb.toString();
-//                    Element e = new Element(resultado);
-//                    elem[cont++] = e;
-//                }else if(line.startsWith("#")){
-//                    nr2=1;
-//                    StringBuilder sb = new StringBuilder();
-//                    String s = line.substring(1);
-//                    sb.append(nr).append(".");
-//                    sb.append(s);
-//                    nr++;
-//                    String resultado = sb.toString();
-//                    Element e = new Element(resultado);
-//                    elem[cont++] = e;
+                if(line.startsWith("**")){
+                    StringBuilder sb = new StringBuilder();
+                    String s = line.substring(1);
+                    sb.append("      ");
+                    sb.append(s);
+                    String resultado = sb.toString();
+                    Element e = new Element(resultado);
+
+                    elem[cont++] = e;
+                }else if(line.startsWith("*")){
+                    Element e = new Element(line);
+                    elem[cont++] = e;
+                }else if(line.startsWith("##")){
+                    StringBuilder sb = new StringBuilder();
+                    String s = line.substring(2);
+                    sb.append("      ");
+                    sb.append(nr-1).append("." + "").append(nr2).append(".");
+                    sb.append(s);
+                    nr2++;
+                    String resultado = sb.toString();
+                    Element e = new Element(resultado);
+                    elem[cont++] = e;
                 }else if(line.startsWith("#")){
-                    ListItem li = new ListItem(true, 1, line.substring(0));
-                    BufferedReader bf2 = bf;
-                    int contSub = 1;
-                    while((line = bf2.readLine()) != null){
-                        if("".equals(line)){
-                            continue;
-                        }else if(line.startsWith("##")){
-                            ListItem sub = new ListItem(true, cont, line.substring(1));
-                            li.addChild(sub);
-                            cont++;
-                            continue;
-                        }else{
-                            break;
-                        }
-                    }
-                }
-                else{
-                    ListItem e = new ListItem(false, line.substring(1));
-//                    elem[cont++] = e;
+                    nr2=1;
+                    StringBuilder sb = new StringBuilder();
+                    String s = line.substring(1);
+                    sb.append(nr).append(".");
+                    sb.append(s);
+                    nr++;
+                    String resultado = sb.toString();
+                    Element e = new Element(resultado);
+                    elem[cont++] = e;
+                }else{
+                    Element e = new Element(line.substring(1));
+                    elem[cont++] = e;
                 }
         }
-        return list;
+        return elem;
     }
     
     public static void readSlide(BufferedReader bf, Presentation ps) throws IOException{
@@ -260,7 +233,7 @@ public class Loader {
 
             tamanho = contaSlide(bf);
             bf.reset();
-            ps = new Presentation();
+            ps = new Presentation(tamanho);
             
             while((line = bf.readLine()) != null){
                 if("".equals(line)){
@@ -291,8 +264,7 @@ public class Loader {
         }catch(IOException io){
             JOptionPane.showMessageDialog(null, "Erro na leitura do arquivo " + filename, "Erro!", JOptionPane.ERROR_MESSAGE);
         }catch(ParseException pe){
-            System.out.println("CAGOU!");
-            pe.printStackTrace();
+            System.out.println("Erro!");
         }catch(NullPointerException e){
             System.out.println("Erro na abertura do arquivo.");
         }finally{
