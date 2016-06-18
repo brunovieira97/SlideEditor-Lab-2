@@ -1,4 +1,4 @@
-package ga.laboratorio2.slideviewer;
+package ga.laboratorio2.slideeditor;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
