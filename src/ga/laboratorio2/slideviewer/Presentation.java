@@ -30,12 +30,20 @@ public class Presentation {
     public void addSlide(Slide pag) {
         pagina.insertLast(pag);
     }
+    
+    public void addSlideEsp(Slide pag, int index){
+        pagina.insert(pag, index);
+    }
 
     public Slide getSlide(int index){
         if(index>pagina.numElements()){
             return null;
         } 
         return pagina.get(index);
+    }
+    
+    public DoublyLinkedList<Slide> getPagina(){
+        return pagina;
     }
     
     public int getSize(){
