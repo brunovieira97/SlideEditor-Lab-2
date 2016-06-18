@@ -1,0 +1,18 @@
+para desenhar slide com numero de pagina, primeiro um método que testa o conteúdo (ehOQ) iria receber o numero da pagina, que seria passado por parametro quando o metodo que monta o slide é executado.
+
+o método que monta o slide tem int pageNum, Slide slide e Footer footer
+--
+
+contador para cada novo "elemento" (linha de content), definir num linhas fixo e preencher até length com linha com espaços " ";
+
+--
+
+BACKLOG
+
+1 - Bordas internas, Título centralizado
+
+2 - Footer com estilo do Title
+
+3 - Navegação com char do teclado '<' e '>'
+
+4 - 
