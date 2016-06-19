@@ -231,6 +231,11 @@ public class DoublyLinkedList<E> implements List<E> {
 		return -1;
 	}
 	
+        @Override
+        protected Object clone() throws CloneNotSupportedException {
+            DoublyLinkedList<E> list = (DoublyLinkedList)super.clone();
+            return list;
+        }
 	/**
 	 * Retorna uma representa��o String da lista.
 	 * @see java.lang.Object#toString()
