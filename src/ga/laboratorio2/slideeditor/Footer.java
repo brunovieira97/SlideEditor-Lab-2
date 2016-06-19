@@ -50,7 +50,12 @@ public class Footer extends Element {
         this.center = center;
     }
 
-
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Footer cloned = (Footer)super.clone();
+        return cloned;
+    }   
+    
     @Override
     public String toString() {
         return "Footer{" + "left=" + left + ", right=" + right + ", center=" + center + '}';

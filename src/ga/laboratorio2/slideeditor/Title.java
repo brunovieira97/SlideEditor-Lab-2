@@ -56,6 +56,11 @@ public class Title extends Element{
         return upperBorder;
     }
     
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Title cloned = (Title)super.clone();
+        return cloned;
+    }   
     
     @Override
     public String print(){

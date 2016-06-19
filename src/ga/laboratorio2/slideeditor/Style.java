@@ -60,6 +60,12 @@ public class Style {
     public void setId(int id) {
         this.id = id;
     }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Style cloned = (Style)super.clone();
+        return cloned;
+    }
 
     @Override
     public String toString() {

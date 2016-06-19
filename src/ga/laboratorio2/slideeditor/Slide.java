@@ -47,6 +47,16 @@ public class Slide implements Printable {
     }
     
     @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Slide cloned = (Slide)super.clone();
+        cloned.setEstilo((Style)cloned.getEstilo().clone());
+        cloned.setTitle((Title)cloned.getTitle().clone());
+        cloned.elemento = (DoublyLinkedList)cloned.elemento.clone();
+        
+        return cloned;
+    }
+    
+    @Override
     public String print() {
         StringBuilder sb = new StringBuilder(" ");
         sb.setLength(118);

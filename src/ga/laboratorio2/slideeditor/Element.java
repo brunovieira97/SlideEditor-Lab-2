@@ -23,6 +23,12 @@ public class Element implements Printable{
     public void setText(String text) {
         this.text = text;
     }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Element cloned = (Element)super.clone();
+        return cloned;
+    }
 
     @Override
     public String toString() {
