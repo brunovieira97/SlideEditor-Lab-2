@@ -75,7 +75,7 @@ public class Loader {
                     String valor = line.substring(7);
                     ft.setCenter(ehOQ(valor));
                     String r = line.substring(13);
-                    ft.setFd(r);
+                    ft.setFD(r);
                 }
                 if (line.startsWith("right=")) {  
                     String valor = line.substring(6);

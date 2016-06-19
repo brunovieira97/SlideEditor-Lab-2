@@ -42,5 +42,11 @@ public class Element implements Printable{
         }
         return r;
     }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Element cloned = (Element)super.clone();
+        return cloned;
+    }   
 
 }

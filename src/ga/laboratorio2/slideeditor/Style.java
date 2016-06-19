@@ -70,5 +70,10 @@ public class Style {
             + "\nCor do Fundo (Título): " + titleBackColor;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Style cloned = (Style)super.clone();
+        return cloned;
+    }   
 
 }

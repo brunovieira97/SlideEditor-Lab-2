@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 public class Footer extends Element {
-    private String left,right,center, fd;
+    private String left,right,center,fd;
 
     public Footer() {
     }
@@ -18,14 +18,6 @@ public class Footer extends Element {
         this.center = center;
     }
 
-    public String getFd() {
-        return fd;
-    }
-
-    public void setFd(String fd) {
-        this.fd = fd;
-    }
-    
     public String getLeft() {
         return left;
     }
@@ -49,7 +41,14 @@ public class Footer extends Element {
     public void setCenter(String center) {
         this.center = center;
     }
-
+    
+    public void setFD(String fd){
+        this.fd = fd;
+    }
+    
+    public String getFD(){
+        return this.fd;
+    }
 
     @Override
     public String toString() {
@@ -83,5 +82,10 @@ public class Footer extends Element {
         return msg;
     }
     
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Footer cloned = (Footer)super.clone();
+        return cloned;
+    }   
     
 }

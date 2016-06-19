@@ -8,8 +8,9 @@ package ga.laboratorio2.slideeditor;
 
 public class Slide implements Printable {
     private Style estilo;
-    private DoublyLinkedList<Element> elemento;
     private Title title;
+    private DoublyLinkedList<Element> elemento;
+
 
     public Slide(int tamanho) {
         this.elemento = new DoublyLinkedList<Element>();
@@ -118,6 +119,16 @@ public class Slide implements Printable {
         System.out.println(bordaExterna + ColorCodes.corFonte(estilo.getTitleTextColor()) + ColorCodes.corFundo(estilo.getTitleBackColor()) + footer + bordaExterna);
         
         System.out.println(ColorCodes.corFonte(estilo.getTextColor()) + ColorCodes.corFundo(estilo.getBackgroundColor()) + separador + ColorCodes.ANSI_RESET);
+    }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Slide cloned = (Slide)super.clone();
+        cloned.setEstilo((Style)cloned.getEstilo().clone());
+        cloned.setTitle((Title)cloned.getTitle().clone());
+        cloned.elemento = (DoublyLinkedList)cloned.elemento.clone();
+        
+        return cloned;
     }
     
 }

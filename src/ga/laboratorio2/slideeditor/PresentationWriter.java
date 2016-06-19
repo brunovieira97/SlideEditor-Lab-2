@@ -49,7 +49,7 @@ public class PresentationWriter {
         out.print("left=");
         out.println(ps.getRodape().getLeft());
         out.print("center=#date;");
-        out.println(ps.getRodape().getFd());
+        out.println(ps.getRodape().getFD());
         out.println("right=#page");
         out.println("/footer");
     }

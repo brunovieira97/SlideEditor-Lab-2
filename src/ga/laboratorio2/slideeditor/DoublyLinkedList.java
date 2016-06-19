@@ -1,10 +1,14 @@
 package ga.laboratorio2.slideeditor;
 
+import ga.laboratorio2.slideeditor.DNode;
+import ga.laboratorio2.slideeditor.List;
+
 
 /**
  * Implementa��o de uma lista linear com armazenamento din�mico,
  * baseado em n�s duplamente encadeados (encadeamento nos dois
  * sentidos).
+ * @param <E>
  */
 public class DoublyLinkedList<E> implements List<E> {
 	DNode<E> head;
@@ -245,4 +249,11 @@ public class DoublyLinkedList<E> implements List<E> {
 		}
 		return s;
 	}
+
+	@Override
+        protected Object clone() throws CloneNotSupportedException {
+            DoublyLinkedList<E> list = (DoublyLinkedList)super.clone();
+            return list;
+        }
+
 }

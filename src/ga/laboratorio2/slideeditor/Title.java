@@ -67,5 +67,10 @@ public class Title extends Element{
  
     }
     
+    @Override
+    protected Object clone() throws CloneNotSupportedException{
+        Title cloned = (Title)super.clone();
+        return cloned;
+    }   
    
 }
