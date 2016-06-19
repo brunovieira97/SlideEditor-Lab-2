@@ -9,19 +9,19 @@ package ga.laboratorio2.slideeditor;
 public class ListItem extends Element{
     private boolean numbered;
     private int order;
-    DoublyLinkedList<ListItem> subElements;
+    DoublyLinkedList<ListItem> childListItems;
 
     public ListItem(boolean numbered, String text) {
         super(text);
         this.numbered = numbered;
-        subElements = new DoublyLinkedList<>();
+        this.childListItems = new DoublyLinkedList<>();
     }
     
     public ListItem(boolean numbered, int order, String text){
         super(text);
         this.numbered = numbered;
         this.order = order;
-        subElements = new DoublyLinkedList<>();
+        this.childListItems = new DoublyLinkedList<>();
     }
 
     public boolean isNumbered() {
@@ -41,17 +41,17 @@ public class ListItem extends Element{
     }
 
     public int getChildCount(){
-        return subElements.numElements();
+        return childListItems.numElements();
     }
     
     public void addChild(ListItem item){
-        subElements.insertLast(item);
+        childListItems.insertLast(item);
     }
     
     public String print(){
         String msg = getText() + "\n";
         for(int i = 0; i < this.getChildCount(); i++){
-            msg += subElements.get(i).print();
+            msg += childListItems.get(i).print();
         }
         return msg;
     }
