@@ -1,9 +1,5 @@
 package ga.laboratorio2.slideeditor;
 
-import ga.laboratorio2.slideeditor.DNode;
-import ga.laboratorio2.slideeditor.List;
-
-
 /**
  * Implementa��o de uma lista linear com armazenamento din�mico,
  * baseado em n�s duplamente encadeados (encadeamento nos dois
