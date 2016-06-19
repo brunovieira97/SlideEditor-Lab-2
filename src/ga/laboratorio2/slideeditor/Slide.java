@@ -56,6 +56,7 @@ public class Slide implements Printable {
         return cloned;
     }
     
+    
     @Override
     public String print() {
         StringBuilder sb = new StringBuilder(" ");
