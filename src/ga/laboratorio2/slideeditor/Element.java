@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 
-public class Element implements Printable{
+public class Element implements Printable, Cloneable{
     private String text;
 
     public Element() {

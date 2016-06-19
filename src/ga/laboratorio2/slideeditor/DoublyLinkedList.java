@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * sentidos).
  * @param <E>
  */
-public class DoublyLinkedList<E> implements List<E> {
+public class DoublyLinkedList<E> implements List<E>, Cloneable {
 	DNode<E> head;
 	DNode<E> tail;
 	int numElements;

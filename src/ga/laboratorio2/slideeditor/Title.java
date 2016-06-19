@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 
-public class Title extends Element{
+public class Title extends Element implements Cloneable{
     private boolean capital;
 
     public Title() {

@@ -5,7 +5,7 @@ package ga.laboratorio2.slideeditor;
  * @author Bruno Vieira
  * @author Orlando Rodrigues
  */
-public class Footer extends Element {
+public class Footer extends Element implements Cloneable {
     private String left,right,center,fd;
 
     public Footer() {

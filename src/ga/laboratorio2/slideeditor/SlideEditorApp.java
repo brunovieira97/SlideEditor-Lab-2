@@ -32,6 +32,7 @@ public class SlideEditorApp {
                     break;
                 case 2:
                     nav.previous();
+                    PresentationEditor.duplica(1, ps);
                     PresentationWriter.save("MeuArquivo.txt", ps);
                     break;
                 case 3:

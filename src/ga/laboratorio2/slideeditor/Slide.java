@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 
-public class Slide implements Printable {
+public class Slide implements Printable, Cloneable {
     private Style estilo;
     private Title title;
     private DoublyLinkedList<Element> elemento;
@@ -122,7 +122,7 @@ public class Slide implements Printable {
     }
     
     @Override
-    protected Object clone() throws CloneNotSupportedException {
+    protected Slide clone() throws CloneNotSupportedException {
         Slide cloned = (Slide)super.clone();
         cloned.setEstilo((Style)cloned.getEstilo().clone());
         cloned.setTitle((Title)cloned.getTitle().clone());
@@ -130,5 +130,11 @@ public class Slide implements Printable {
         
         return cloned;
     }
+
+    @Override
+    public String toString() {
+        return "Slide{" + "estilo=" + estilo + ", title=" + title + ", elemento=" + elemento + '}';
+    }
     
+
 }

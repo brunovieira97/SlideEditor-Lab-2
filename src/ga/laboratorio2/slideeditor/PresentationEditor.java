@@ -15,12 +15,12 @@ public class PresentationEditor {
         }
     }
     
-    public static void duplica(int page, Presentation pres){
+    public static void duplica(int page, Presentation pres) throws CloneNotSupportedException{
         if(page < 0 || page > pres.getSize()+1){
            System.out.println("Indice inválido");
         }else{
-            Slide s = pres.getSlide(page);
-            int i = pres.getPagina().search(s);
+            Slide s = (Slide) pres.getSlide(page).clone();
+            int i = pres.getPagina().search(pres.getSlide(page));
             pres.addSlideEsp(s,i);
         }
     }

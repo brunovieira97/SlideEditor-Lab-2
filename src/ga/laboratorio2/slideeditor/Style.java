@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 
-public class Style {
+public class Style implements Cloneable{
     private String textColor, backgroundColor, titleTextColor, titleBackColor;
     private int id;
 
