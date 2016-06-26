@@ -55,5 +55,15 @@ public class ListItem extends Element{
         }
         return msg;
     }
-    
+
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        //Tem que copiar todo o conteudo da lista
+        DoublyLinkedList<ListItem> dcloned = new DoublyLinkedList<ListItem>();
+        for(int i=0; i < subElements.numElements(); i++){
+            dcloned.insertLast((ListItem)subElements.get(i).clone());
+        }
+        return dcloned;
+    }
+
 }

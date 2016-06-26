@@ -26,7 +26,11 @@ public class Title extends Element implements Cloneable{
         this.capital = capital;
     }
     
-    public int getCapital(){
+    public boolean getCapital(){
+        return this.capital;
+    }
+    
+    public int getCapitalAsInt(){
         if(!capital){
             return 1;
         }
@@ -69,7 +73,9 @@ public class Title extends Element implements Cloneable{
     
     @Override
     protected Object clone() throws CloneNotSupportedException{
-        Title cloned = (Title)super.clone();
+        Title cloned = new Title();
+        cloned.setCapital(this.getCapital());
+        cloned.setText(this.getText());
         return cloned;
     }   
    

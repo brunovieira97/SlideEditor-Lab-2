@@ -1,6 +1,6 @@
 package ga.laboratorio2.slideeditor;
 
-public class DoublyLinkedList<E> implements List<E>, Cloneable {
+public class DoublyLinkedList<E> implements List<E> {
 	DNode<E> head;
 	DNode<E> tail;
 	int numElements;
@@ -159,10 +159,5 @@ public class DoublyLinkedList<E> implements List<E>, Cloneable {
 		return s;
 	}
 
-	@Override
-        protected Object clone() throws CloneNotSupportedException {
-            DoublyLinkedList<E> list = (DoublyLinkedList)super.clone();
-            return list;
-        }
 
 }

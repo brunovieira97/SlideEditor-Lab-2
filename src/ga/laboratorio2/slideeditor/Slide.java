@@ -6,13 +6,13 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 
-public class Slide implements Printable, Cloneable {
+public class Slide implements Printable {
     private Style estilo;
     private Title title;
     private DoublyLinkedList<Element> elemento;
 
 
-    public Slide(int tamanho) {
+    public Slide() {
         this.elemento = new DoublyLinkedList<Element>();
     }
 
@@ -123,11 +123,13 @@ public class Slide implements Printable, Cloneable {
     
     @Override
     protected Slide clone() throws CloneNotSupportedException {
-        Slide cloned = (Slide)super.clone();
-        cloned.setEstilo((Style)cloned.getEstilo().clone());
-        cloned.setTitle((Title)cloned.getTitle().clone());
-        cloned.elemento = (DoublyLinkedList)cloned.elemento.clone();
-        
+        Slide cloned = new Slide();
+        cloned.setEstilo((Style)this.getEstilo().clone());
+        cloned.setTitle((Title)this.getTitle().clone());
+        DoublyLinkedList<Element> dcloned = new DoublyLinkedList<Element>();
+        for (int i = 0; i<elemento.numElements(); i++){
+            dcloned.insertLast((Element)elemento.get(i).clone());
+        }
         return cloned;
     }
 

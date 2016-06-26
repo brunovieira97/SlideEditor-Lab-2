@@ -72,7 +72,12 @@ public class Style implements Cloneable{
 
     @Override
     protected Object clone() throws CloneNotSupportedException{
-        Style cloned = (Style)super.clone();
+        Style cloned = new Style();
+        cloned.setBackgroundColor(this.getBackgroundColor());
+        cloned.setId(this.getId());
+        cloned.setTextColor(this.getTextColor());
+        cloned.setTitleBackColor(this.getTitleBackColor());
+        cloned.setTitleTextColor(this.getTitleTextColor());
         return cloned;
     }   
 

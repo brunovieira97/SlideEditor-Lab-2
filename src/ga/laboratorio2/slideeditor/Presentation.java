@@ -59,6 +59,12 @@ public class Presentation{
     }
 
     @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Presentation cloned = new Presentation();
+        return cloned;
+    }
+    
+    @Override
     public String toString() {
         return "Presentation{" + "estilo=" + estilo + ", pagina=" + pagina + ", rodape=" + rodape + '}';
     }

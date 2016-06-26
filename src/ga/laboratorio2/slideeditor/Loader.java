@@ -160,7 +160,7 @@ public class Loader {
         boolean b=false;
         Title t;
         Element[] temp;
-        Slide sl = new Slide(100);
+        Slide sl = new Slide();
         Slide sl2;
         int cont = 0;
             while((line = bf.readLine()) != null){
@@ -173,7 +173,7 @@ public class Loader {
                 if ("/slide".equals(line)) {
                     sl2=sl;
                     ps.addSlide(sl2);
-                    sl= new Slide(100);
+                    sl= new Slide();
                     cont++;
                     continue;
                 }

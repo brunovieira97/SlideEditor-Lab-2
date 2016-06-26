@@ -5,7 +5,7 @@ package ga.laboratorio2.slideeditor;
  * @author Bruno Vieira
  * @author Orlando Rodrigues
  */
-public class Footer extends Element implements Cloneable {
+public class Footer extends Element {
     private String left,right,center,fd;
 
     public Footer() {
@@ -84,7 +84,12 @@ public class Footer extends Element implements Cloneable {
     
     @Override
     protected Object clone() throws CloneNotSupportedException{
-        Footer cloned = (Footer)super.clone();
+        Footer cloned = new Footer();
+        cloned.setCenter(this.getCenter());
+        cloned.setFD(this.getFD());
+        cloned.setLeft(this.getLeft());
+        cloned.setRight(this.getRight());
+        cloned.setText(this.getText());
         return cloned;
     }   
     

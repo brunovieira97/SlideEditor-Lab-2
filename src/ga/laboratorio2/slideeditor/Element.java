@@ -6,7 +6,7 @@ package ga.laboratorio2.slideeditor;
  * @author Orlando Rodrigues
  */
 
-public class Element implements Printable, Cloneable{
+public class Element implements Printable{
     private String text;
 
     public Element() {
@@ -45,7 +45,8 @@ public class Element implements Printable, Cloneable{
     
     @Override
     protected Object clone() throws CloneNotSupportedException{
-        Element cloned = (Element)super.clone();
+        Element cloned = new Element();
+        cloned.setText(this.getText());
         return cloned;
     }   
 
